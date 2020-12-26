@@ -11,12 +11,28 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
 
     <title>React App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      // check service worker suppoerted by browser
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          // enabled service worker
+          navigator.serviceWorker
+            .register("./serviceWorker.js")
+            .then((reg) => {
+              console.log("Success", reg.scope);
+            })
+            .catch((error) => {
+              console.log("Failure", error);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
