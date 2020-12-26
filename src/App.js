@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { fetchWeatherData } from "./api/fetchWeather";
 import Search from "./components/Search/Search";
 import WeatherCard from "./components/WeatherCard/WeatherCard";
+import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 
 function App() {
   const [city, setCity] = useState("");
@@ -16,8 +17,13 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    document.body.style = "background: #F9FAFB;";
+  }, []);
+
   return (
     <div className="container mx-auto  w-11/12">
+      <ThemeToggle />
       {/* Search */}
       <Search city={city} setCity={setCity} getWeather={getWeather} />
       {/* show weather */}

@@ -4,20 +4,20 @@ function WeatherCard({ weatherData }) {
   return (
     <div className="my-5">
       {/* City name */}
-      <h3 className="text-lg font-bold">
+      <h3 className="text-lg font-bold dark:text-white">
         {weatherData.name + " "}
-        <sup className="text-sm font-light text-gray-600">
+        <sup className="text-sm font-light text-gray-600 dark:text-gray-50">
           {weatherData.sys.country}
         </sup>
       </h3>
       {/* date */}
-      <h4 className="font-semibold">
+      <h4 className="font-semibold dark:text-white">
         Last updated at: {new Date(weatherData.dt * 1000).toLocaleTimeString()}
       </h4>
       {/* temp and img */}
       <div className=" flex flex-col items-center">
         <div className="city-temp">
-          <h1 className="text-9xl font-extrabold">
+          <h1 className="text-9xl font-extrabold dark:text-white">
             {Math.round(weatherData.main.temp)}
             <sup>&deg;C</sup>
           </h1>
@@ -47,7 +47,7 @@ function WeatherCard({ weatherData }) {
               d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
             />
           </svg>
-          <p className="font-semibold">
+          <p className="font-semibold dark:text-white">
             {new Date(weatherData.sys.sunrise * 1000).toLocaleString()}
           </p>
         </div>
@@ -64,30 +64,30 @@ function WeatherCard({ weatherData }) {
               clipRule="evenodd"
             />
           </svg>
-          <p className="font-semibold">
+          <p className="font-semibold dark:text-white">
             {new Date(weatherData.sys.sunset * 1000).toLocaleString()}
           </p>
         </div>
       </div>
       {/* weather condition */}
       <div className="flex items-center justify-between">
-        <p className="font-bold text-lg">
+        <p className="font-bold text-lg dark:text-white">
           {weatherData.weather[0].description}
         </p>
-        <p className="font-bold text-lg">
+        <p className="font-bold text-lg dark:text-white">
           {Math.round(weatherData.main.temp_min)}&deg; -{" "}
           {Math.round(weatherData.main.temp_max)}&deg;
         </p>
       </div>
       {/* speed ,Humidity, Pressure*/}
       <div className="sm:flex  sm:items-center sm:justify-between">
-        <p className="font-semibold text-gray-700">
+        <p className="font-semibold text-gray-700 dark:text-white">
           Humidity: {weatherData.main.humidity}%
         </p>
-        <p className="font-semibold text-gray-700">
+        <p className="font-semibold text-gray-700 dark:text-white">
           Pressure: {weatherData.main.pressure} hPa
         </p>
-        <p className="font-semibold text-gray-700">
+        <p className="font-semibold text-gray-700 dark:text-white">
           Wind: {weatherData.wind.speed} meter/sec
         </p>
       </div>

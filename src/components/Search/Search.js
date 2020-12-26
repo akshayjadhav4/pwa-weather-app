@@ -14,7 +14,7 @@ const Search = ({ city, setCity, getWeather }) => {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          className="w-5"
+          className="w-5 dark:text-white"
         >
           <path
             strokeLinecap="round"
@@ -32,7 +32,7 @@ const Search = ({ city, setCity, getWeather }) => {
         value={city}
         onChange={(e) => setCity(e.target.value)}
         onKeyPress={getWeather}
-        className="w-full border-b-2 border-black dark:border-white outline-none"
+        className="w-full border-b-2 border-black dark:border-white outline-none bg-gray-50 dark:bg-gray-800"
       />
     </div>
   );
